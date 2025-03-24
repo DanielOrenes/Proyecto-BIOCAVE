@@ -4,6 +4,7 @@ public class ParticulasDeMicrofono : MonoBehaviour
 {
     public AudioSource source;
     public ParticleSystem particulas;
+    public ParticleSystem burst;
     public DetectorDeAudio detector;
     public float sensitividad = 100;
     public float rango = 2f;
@@ -26,12 +27,14 @@ public class ParticulasDeMicrofono : MonoBehaviour
         if(volumen <= rango && particulas.isPlaying == true)
         {
             particulas.Stop();
-
+            burst.Play();
             cubito.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
         }
         else if(volumen > rango && particulas.isStopped == true)
         {
+            //cuando el micro detecta audio, activo las particulas de burbujas y desactivo las del burst
             particulas.Play();
+            burst.Stop();
             cubito.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
         }
     }

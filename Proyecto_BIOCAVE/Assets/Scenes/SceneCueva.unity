@@ -6086,6 +6086,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!198 &1009404089 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 714098171132664157, guid: 8438b79f8d7dca74caef47e1238443b8, type: 3}
+  m_PrefabInstance: {fileID: 19604916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223799238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6539,6 +6544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1353626641}
   particulas: {fileID: 1353626637}
+  burst: {fileID: 1009404089}
   detector: {fileID: 1353626638}
   sensitividad: 100
   rango: 1
