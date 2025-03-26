@@ -26,8 +26,9 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _Metalico: 0
     - _Mix_secundario: -0.44
-    - _Tileado_primario: 20
+    - _Tileado_primario: 32.4
     - _Tileado_secundario: 6
     m_Colors: []
   m_BuildTextureStacks: []
