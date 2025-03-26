@@ -84,15 +84,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _MainSmoothness: 0
-    - _Metalico: 0.31
-    - _Mix_secundario: 0.7
+    - _Metalico: 0
+    - _Mix_secundario: -1.28
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SecondSmoothness: 0
     - _SecondTextureHeight: 0
     - _SecondTextureThreshold: 0
-    - _Tileado_primario: 12.91
-    - _Tileado_secundario: 30.9
+    - _Tileado_primario: 20
+    - _Tileado_secundario: 20
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

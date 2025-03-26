@@ -122,7 +122,7 @@ Material:
     - _GlossyReflections: 0
     - _Metalico: 0
     - _Metallic: 0
-    - _Mix_secundario: 0
+    - _Mix_secundario: -1.13
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -134,8 +134,8 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Tileado_primario: 10
-    - _Tileado_secundario: 25.57
+    - _Tileado_primario: 5
+    - _Tileado_secundario: 6
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
