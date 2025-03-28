@@ -22,7 +22,7 @@ public class ParticulasDeMicrofono : MonoBehaviour
     void Update()
     {
         float volumen = detector.obtenerVolumenMicro() * sensitividad;
-        Debug.Log(volumen);
+        
 
         if(volumen <= rango && particulas.isPlaying == true)
         {
