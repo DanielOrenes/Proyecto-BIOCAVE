@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03af82493d6ff954ca25da4c5cfdb93b, type: 3}
+  m_Name: Gammarus fossarum
+  m_EditorClassIdentifier: 
+  nombreCientifico: Gammarus fossarum
+  filo: Arthropoda
+  clase: Malacostraca
+  orden: Amphipoda
+  familia: Gammaridae
+  descripcion: "Gammarus fossarum es un complejo de especies de crust\xE1ceos antifipodos
+    de agua dulce originarios de Europa. Son miembros abundantes de la comunidad
+    de macroinvertebrados y tambien se utilizan como organismos modelo en ecotoxicolog\xEDa"
+  imagen: {fileID: 0}

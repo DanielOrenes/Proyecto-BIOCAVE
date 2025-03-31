@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8967e71b57dfd6c479741104b2a936ce
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - animal: {instanceID: 0}
+  - nombreText: {instanceID: 0}
+  - filoText: {instanceID: 0}
+  - claseText: {instanceID: 0}
+  - ordenText: {instanceID: 0}
+  - familiaText: {instanceID: 0}
+  - descripcionText: {instanceID: 0}
+  - imagenUI: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
