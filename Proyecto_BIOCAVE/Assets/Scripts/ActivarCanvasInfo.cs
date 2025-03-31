@@ -18,7 +18,6 @@ public class ActivarCanvaInfo : MonoBehaviour
         {
             Debug.Log("Hola");
             canvas.SetActive(true);
-            animator.SetBool("IsVisible", true);
         }
     }
 
@@ -27,14 +26,15 @@ public class ActivarCanvaInfo : MonoBehaviour
         if (other.CompareTag("User"))
         {
             Debug.Log("Chao");
-            animator.SetBool("IsVisible", false);
+            animator.SetBool("IsOver", true);
             StartCoroutine(DisableCanvasAfterAnimation());
         }
     }
-
     private IEnumerator DisableCanvasAfterAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f); 
         canvas.SetActive(false);
+        StopAllCoroutines();
     }
+
 }
