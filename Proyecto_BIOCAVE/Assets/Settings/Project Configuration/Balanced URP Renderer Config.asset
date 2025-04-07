@@ -25,11 +25,11 @@ MonoBehaviour:
     probeSamplingDebugTexture: {fileID: 0}
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
-  - {fileID: 5823518493356286468}
   - {fileID: 9026139825553632129}
-  m_RendererFeatureMap: 04626b23374bd150816b214b594a437d
+  - {fileID: 5823518493356286468}
+  m_RendererFeatureMap: 816b214b594a437d04626b23374bd150
   m_UseNativeRenderPass: 0
-  xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
+  xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 2
   m_OpaqueLayerMask:
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: FullScreenPass
   m_EditorClassIdentifier: 
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 450
   fetchColorBuffer: 1
   requirements: 4
   passMaterial: {fileID: 2100000, guid: cc3ab460074c34d4e82b0302d6227c8e, type: 2}
