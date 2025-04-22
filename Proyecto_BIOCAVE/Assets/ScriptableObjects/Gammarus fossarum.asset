@@ -17,7 +17,8 @@ MonoBehaviour:
   clase: Malacostraca
   orden: Amphipoda
   familia: Gammaridae
+  imagen: {fileID: 21300000, guid: f6821985881e391439908c92f0be6f9f, type: 3}
+  videoURL: 'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4 '
   descripcion: "Gammarus fossarum es un complejo de especies de crust\xE1ceos antifipodos
     de agua dulce originarios de Europa. Son miembros abundantes de la comunidad
     de macroinvertebrados y tambien se utilizan como organismos modelo en ecotoxicolog\xEDa"
-  imagen: {fileID: 0}

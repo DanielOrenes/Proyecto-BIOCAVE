@@ -1,18 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Video;
+
 public class MostrarAnimal : MonoBehaviour
 {
     public AnimalData animal;
 
-    [Header("Referencias de UI")]
+    [Header("Textos")]
     public TMP_Text nombreText;
     public TMP_Text filoText;
     public TMP_Text claseText;
     public TMP_Text ordenText;
     public TMP_Text familiaText;
     public TMP_Text descripcionText;
+
+    [Header("Imagen")]
     public Image imagenUI;
+
+    [Header("Video")]
+    public VideoPlayer videoPlayer;
+    public RawImage rawImageVideo;
+
+    [Header("Controles")]
+    public GameObject controlesVideo;
+    public Image iconoBotonPausa;
+    public Sprite spritePausa;
+    public Sprite spriteReanudar;
+    public GameObject botonCerrar;
+
+    private bool estaPausado = false;
 
     void Start()
     {
@@ -23,21 +40,62 @@ public class MostrarAnimal : MonoBehaviour
             claseText.text = "Clase: " + animal.clase;
             ordenText.text = "Orden: " + animal.orden;
             familiaText.text = "Familia: " + animal.familia;
-            descripcionText.text = "Descripción: " + animal.descripcion;
+            descripcionText.text = animal.descripcion;
 
             if (animal.imagen != null)
-            {
                 imagenUI.sprite = animal.imagen;
-                imagenUI.gameObject.SetActive(true);
-            }
-            else
-            {
-                imagenUI.gameObject.SetActive(false);
-            }
+
+            rawImageVideo.gameObject.SetActive(false);
+            videoPlayer.Stop();
+        }
+    }
+
+    public void ReproducirVideo()
+    {
+        if (!string.IsNullOrEmpty(animal.videoURL))
+        {
+            videoPlayer.source = VideoSource.Url;
+            videoPlayer.url = animal.videoURL;
+
+            videoPlayer.prepareCompleted += OnVideoReady;
+            videoPlayer.Prepare();
+        }
+    }
+
+    void OnVideoReady(VideoPlayer vp)
+    {
+        rawImageVideo.gameObject.SetActive(true);
+        controlesVideo.SetActive(true); // Mostrar controles junto al video
+
+        estaPausado = false;
+        iconoBotonPausa.sprite = spritePausa;
+        vp.Play();
+    }
+    public void PausarReanudarVideo()
+    {
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Pause();
+            estaPausado = true;
+            iconoBotonPausa.sprite = spriteReanudar;
         }
         else
         {
-            Debug.LogError("No se ha asignado un AnimalData en el inspector.");
+            videoPlayer.Play();
+            estaPausado = false;
+            iconoBotonPausa.sprite = spritePausa;
         }
     }
+
+    public void CerrarVideo()
+    {
+        videoPlayer.Stop();
+        rawImageVideo.gameObject.SetActive(false);
+        controlesVideo.SetActive(false);
+    }
 }
+
+
+
+
+

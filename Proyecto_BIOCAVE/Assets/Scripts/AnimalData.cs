@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 [CreateAssetMenu(fileName = "AnimalData", menuName = "Scriptable Objects/AnimalData")]
 public class AnimalData : ScriptableObject
@@ -10,8 +11,11 @@ public class AnimalData : ScriptableObject
     public string orden;
     public string familia;
 
-    [Header("Otros Datos")]
+    [Header("Multimedia")]
+    public Sprite imagen;
+    public string videoURL;
+
+    [Header("Descripción")]
     [TextArea(3, 5)]
     public string descripcion;
-    public Sprite imagen;
 }
