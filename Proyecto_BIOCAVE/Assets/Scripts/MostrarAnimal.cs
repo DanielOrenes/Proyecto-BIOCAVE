@@ -65,7 +65,7 @@ public class MostrarAnimal : MonoBehaviour
     void OnVideoReady(VideoPlayer vp)
     {
         rawImageVideo.gameObject.SetActive(true);
-        controlesVideo.SetActive(true); // Mostrar controles junto al video
+        controlesVideo.SetActive(true);
 
         estaPausado = false;
         iconoBotonPausa.sprite = spritePausa;
