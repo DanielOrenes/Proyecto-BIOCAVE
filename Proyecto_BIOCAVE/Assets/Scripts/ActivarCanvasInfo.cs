@@ -7,43 +7,47 @@ public class ActivarCanvaInfo : MonoBehaviour
     private Animator animator;
     public Transform jugador;
     public float distanciaActivacion = 5f;
-    private bool isDisabling = false;
+    private Coroutine canvasAnimCorroutine = null;
 
     void Start()
     {
         animator = canvas.GetComponent<Animator>();
-        canvas.SetActive(false); 
+        canvas.SetActive(false);
     }
+
     void Update()
     {
         float distancia = Vector3.Distance(transform.position, jugador.position);
 
         if (distancia <= distanciaActivacion)
         {
-            if (!canvas.activeSelf)
-            {
-                Debug.Log("Activar");
-                canvas.SetActive(true);
-                animator.SetBool("IsOver", false);
-                isDisabling = false;
-            }
+            if (!canvas.activeSelf && canvasAnimCorroutine == null)
+                canvasAnimCorroutine = StartCoroutine(CanvasAnimation(true));
         }
         else
         {
-            if (canvas.activeSelf && !isDisabling)
-            {
-                animator.SetBool("IsOver", true);
-                StartCoroutine(DisableCanvasAfterAnimation());
-            }
+            if (canvas.activeSelf && canvasAnimCorroutine == null)
+                canvasAnimCorroutine = StartCoroutine(CanvasAnimation(false));
         }
     }
-    
-    private IEnumerator DisableCanvasAfterAnimation()
-    {
-        isDisabling = true;
-        yield return new WaitForSeconds(2f); 
-        canvas.SetActive(false);
-        isDisabling = false;
-    }
 
+    private IEnumerator CanvasAnimation(bool activar)
+    {
+        if (activar)
+        {
+            Debug.Log("Activando canvas");
+            canvas.SetActive(true);
+            animator.SetBool("IsOver", false);
+            yield return null;
+        }
+        else
+        {
+            Debug.Log("Desactivando canvas");
+            animator.SetBool("IsOver", true);
+            yield return new WaitForSeconds(2);
+            canvas.SetActive(false);
+        }
+        canvasAnimCorroutine = null;
+        Debug.Log("Fin de corrutina");
+    }
 }
