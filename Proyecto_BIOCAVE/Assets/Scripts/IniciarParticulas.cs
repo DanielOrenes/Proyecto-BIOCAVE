@@ -18,11 +18,13 @@ public class ActivarParticulasPorDistancia : MonoBehaviour
 
         if (distancia <= distanciaActivacion)
         {
+            //Activar las particulas si se esta a una distancia especifica
             if (!particulas.isPlaying)
                 particulas.Play();
         }
         else
         {
+            //Desactivar las particulas si se esta a una distancia especifica mayor
             if (particulas.isPlaying)
                 particulas.Stop();
         }

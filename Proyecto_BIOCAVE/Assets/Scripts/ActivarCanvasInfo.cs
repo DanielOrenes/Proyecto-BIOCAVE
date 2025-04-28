@@ -25,7 +25,7 @@ public class ActivarCanvaInfo : MonoBehaviour
                 Debug.Log("Activar");
                 canvas.SetActive(true);
                 animator.SetBool("IsOver", false);
-                isDisabling = false; // Cancelar cualquier intento de cerrar
+                isDisabling = false;
             }
         }
         else
