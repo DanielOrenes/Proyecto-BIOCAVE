@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.Video;
+using TMPro;
 
 public class MostrarAnimal : MonoBehaviour
 {
     public AnimalData animal;
 
-    [Header("Textos")]
+    [Header("UI Campos")]
     public TMP_Text nombreText;
     public TMP_Text filoText;
     public TMP_Text claseText;
@@ -15,19 +15,16 @@ public class MostrarAnimal : MonoBehaviour
     public TMP_Text familiaText;
     public TMP_Text descripcionText;
 
-    [Header("Imagen")]
+    [Header("Imagenes")]
     public Image imagenUI;
+    public RawImage rawImageVideo;
 
     [Header("Video")]
     public VideoPlayer videoPlayer;
-    public RawImage rawImageVideo;
-
-    [Header("Controles")]
     public GameObject controlesVideo;
     public Image iconoBotonPausa;
     public Sprite spritePausa;
     public Sprite spriteReanudar;
-    public GameObject botonCerrar;
 
     private bool estaPausado = false;
 
@@ -44,33 +41,41 @@ public class MostrarAnimal : MonoBehaviour
 
             if (animal.imagen != null)
                 imagenUI.sprite = animal.imagen;
-
-            rawImageVideo.gameObject.SetActive(false);
-            videoPlayer.Stop();
         }
+
+        // Asegurar que esté todo apagado al inicio
+        rawImageVideo.gameObject.SetActive(false);
+        controlesVideo.SetActive(false);
+        videoPlayer.Stop();
     }
 
     public void ReproducirVideo()
     {
         if (!string.IsNullOrEmpty(animal.videoURL))
         {
-            videoPlayer.source = VideoSource.Url;
+            videoPlayer.Stop();
             videoPlayer.url = animal.videoURL;
+            videoPlayer.source = VideoSource.Url;
 
+            // MUY IMPORTANTE: limpiar eventos viejos
+            videoPlayer.prepareCompleted -= OnVideoReady;
             videoPlayer.prepareCompleted += OnVideoReady;
+
             videoPlayer.Prepare();
         }
     }
 
-    void OnVideoReady(VideoPlayer vp)
+    private void OnVideoReady(VideoPlayer vp)
     {
         rawImageVideo.gameObject.SetActive(true);
         controlesVideo.SetActive(true);
 
         estaPausado = false;
         iconoBotonPausa.sprite = spritePausa;
+
         vp.Play();
     }
+
     public void PausarReanudarVideo()
     {
         if (videoPlayer.isPlaying)
@@ -90,10 +95,13 @@ public class MostrarAnimal : MonoBehaviour
     public void CerrarVideo()
     {
         videoPlayer.Stop();
+        videoPlayer.prepareCompleted -= OnVideoReady;
+        videoPlayer.url = "";
         rawImageVideo.gameObject.SetActive(false);
         controlesVideo.SetActive(false);
     }
 }
+
 
 
 
